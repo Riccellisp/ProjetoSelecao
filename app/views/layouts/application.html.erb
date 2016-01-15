@@ -5,14 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
- <% if current_user.present? %>
+ 
+
+  <% if current_user.present? %>
+  <div>
   Logado como <%= current_user.nome %>,  no email <%= current_user.email%>
   <%= link_to("Sair", destroy_user_session_path, :method => :delete) %>
        <%else%>
        <%= link_to "Cadastrar", new_user_registration_path %>/
        <%= link_to "Entrar", new_user_session_path %>/
+       </div>
        <% end %>
+
+</head>
+  
 <body>
 
 <%= yield %>
